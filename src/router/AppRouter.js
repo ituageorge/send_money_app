@@ -12,8 +12,8 @@ const AppRouter = () => (
       <div className="main-content">
         <Switch>
          
-          <Route component={MyAccountTransfers} path="/myaccounttransfer" />
-          {/* <Route path="/myaccounttransfer" component={props => <MyAccountTransfers />} /> */}
+          {/* <Route component={MyAccountTransfers} path="/myaccounttransfer" /> */}
+          <Route path="/myaccounttransfer" component={props => <MyAccountTransfers />} />
           {/* <Route component={OthersTransfer} path="/otherstransfer" /> */}
           <Route path="/othersTransfer" component={props => <OthersTransfer {...props} />} />
           {/* <Route component={RechargeAcct} path="/rechargeacct" /> */}

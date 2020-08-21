@@ -1,30 +1,36 @@
-import React from 'react';
+// import React from 'react';
 
-const MyAccountTransfers = () => (
+// const MyAccountTransfers = () => {
 
-<form>
-<div className="btn-group">
-  <button type="button" className="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Select bank
-  </button>
-  <div className="dropdown-menu dropdown-menu-right">
-    <button className="dropdown-item" type="button">United Bank for Africa</button>
-    <button className="dropdown-item" type="button">First Bank of Nigeria</button>
-    <button className="dropdown-item" type="button">Union Bank</button>
-    <button className="dropdown-item" type="button">Access Bank</button>
-    <button className="dropdown-item" type="button">Zenith Bank</button>
-    <button className="dropdown-item" type="button">First City Monument Bank of Nigeria</button>
-    <button className="dropdown-item" type="button">Fidelity Bank of Nigeria</button>
-    <button className="dropdown-item" type="button">Guaranty Trust Bank</button>
+//   return(
+// <div className="">
+// <form>
 
-  </div>
-</div>
-  <div className="form-group">
-    <label htmlFor="formGroupExampleInput2">Input Amount</label>
-    <input type="text" className="form-control" id="my-amt" placeholder="Amount"/>
-  </div>
-  <button>Recharge</button>
-</form>
+// <div className="">
+//          <select ref="selectValue" onChange={this.handleChange}>
+//             <option value="555">United Bank for Africa</option>
+//             <option value="777">Union Bank</option>
+//             <option value="444">First Bank </option>
+//             <option value="333">Access Bank</option>
 
-)
-export default MyAccountTransfers;
+//             <option value="222">Zenith Bank</option>
+//             <option value="111">First City Monument Bank of Nigeria</option>
+//             <option value="888">Fidelity Bank of Nigeria </option>
+//             <option value="999">Guaranty Trust Bank</option>
+//           </select>
+//     </div>
+
+//   <div className="form-group">
+//     <label htmlFor="formGroupExampleInput2">Input Amount</label>
+//     <input type="number" className="form-control" id="my-amt" placeholder="Amount"/>
+//   </div>
+//   <button>Recharge</button>
+// </form>
+
+// <div className="">
+//   {/* <p>`*${bankKey}*${amount}#`</p> */}
+// </div>
+// </div>
+//   );
+// };
+// export default MyAccountTransfers;
