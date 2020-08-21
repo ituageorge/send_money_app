@@ -1,6 +1,8 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const isDevelopment = process.env.NODE_ENV === 'development';
+const { SourceMapDevToolPlugin } = require("webpack");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
 
 module.exports = {
   module: {
@@ -12,6 +14,11 @@ module.exports = {
           loader: "babel-loader"
         }
       },
+      {
+         test: /\.js$/,
+         enforce: 'pre',
+         use: ['source-map-loader'],
+       },
       {
         test: /\.html$/,
         use: [
@@ -67,6 +74,20 @@ module.exports = {
     new MiniCssExtractPlugin({
         filename: isDevelopment ? '[name].css' : '[name].[hash].css',
         chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
-    })
+    }),
+    new SourceMapDevToolPlugin({
+      filename: "[file].map"
+    }),
   ]
 };
+
+
+
+// module: {
+//   rules: [
+//     {
+//       test: /\.js$/,
+//       enforce: 'pre',
+//       use: ['source-map-loader'],
+//     },
+//   ],

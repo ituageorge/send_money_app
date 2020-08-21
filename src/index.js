@@ -1,13 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import { Provider } from 'react-redux'
-// import store from './store/store'
-
-import Home from "./js/components/Home";
+import AppRouter from "./router/AppRouter"
 
 const wrapper = document.getElementById("container");
 wrapper ? ReactDOM.render(
-    // <Provider store={store}>
-        <Home/>
-    // </Provider>
+        <AppRouter />
 , wrapper) : false;

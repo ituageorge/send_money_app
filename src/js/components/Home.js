@@ -1,38 +1,27 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React from "react";
+import { Link } from 'react-router-dom';
+// import OthersTransfer from "./OthersTransfer";
+// import MyAccountTransfer from "./MyAccountTransfer"
 
-class Home extends Component {
-  constructor() {
-    super();
 
-    this.state = {
-      value: ""
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    const { value } = event.target;
-    this.setState(() => {
-      return {
-        value
-      };
-    });
-  }
-
-  render() {
-    return (
-      <form>
-          
-        <input
-          type="text"
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-      </form>
-    );
-  }
-}
+const Home = () => (
+  <form action="">
+<div className="">
+  <h2>Click on any of these buttons to transfer payments</h2>
+</div>
+  <div className="">
+  <Link to="/myaccounttransfer">
+    <div className="">
+      <button type="button" className="btn btn-primary btn-lg">Recharge My account</button>
+    </div>
+  </Link>
+  <Link to="/othersTransfer">
+    <div className="">
+      <button type="button" className="btn btn-secondary btn-lg">Recharge other account</button>
+    </div>
+  </Link>
+  </div>
+  </form>
+)
 
 export default Home;
