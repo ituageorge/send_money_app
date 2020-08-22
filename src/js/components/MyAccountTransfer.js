@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import "./styles.css";
 
 const useStateWithLocalStorage = localStorageKey => {
   const [value, setValue] = React.useState(
@@ -35,6 +36,7 @@ const MyAccountTransfers = () => {
 
 <div className="">
          <select onClick={bankChange}>
+            <option >Pick a bank here</option>
             <option value="555">United Bank for Africa</option>
             <option value="777">Union Bank</option>
             <option value="444">First Bank </option>
@@ -47,11 +49,13 @@ const MyAccountTransfers = () => {
           </select>
     </div>
 
-  <div className="form-group">
-    <label htmlFor="formGroupExampleInput2">Input Amount</label>
+  <div className="">
+    <label htmlFor="formGroupExampleInput2"> <b> Input Amount </b> </label>
     <input type="number" className="form-control" id="my-amt" placeholder="Amount" onChange={onAmtChange} value={amountInputed}  ref={inputRef }/>
   </div>
-  <button type="submit">Recharge</button>
+  <div className="">
+  <button type="submit" className="btn btn-primary">Recharge</button>
+  </div>
 </form>
 
 <div className="">

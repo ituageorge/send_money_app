@@ -1,4 +1,5 @@
 import React from 'react';
+import "./styles.css"
 
 const useStateWithLocalStorage = (localStorageKey) => {
   const [amountInputed, setAmountInputed] = React.useState(
@@ -55,6 +56,7 @@ const OthersTransfer = () => {
     <div className="">
          <select 
          onClick={bankChange}>
+            <option >Pick a bank here</option>
             <option value="555">United Bank for Africa</option>
             <option value="777">Union Bank</option>
             <option value="444">First Bank </option>
@@ -67,13 +69,13 @@ const OthersTransfer = () => {
           </select>
     </div>
 
-  <div className="form-group">
-    <label htmlFor="formGroupExampleInput">Input amount to send</label>
+  <div className="">
+    <label htmlFor="formGroupExampleInput"> <b> Input amount to send </b></label>
     <input value={amountInputed} type="number" className="form-control" id="bank" placeholder="Amount" onChange={onChange} />
   </div>
 
-  <div className="form-group">
-    <label htmlFor="formGroupExampleInput2">Input Receivers phone number</label>
+  <div className="">
+    <label htmlFor="formGroupExampleInput2"> <b>Input Receivers phone number </b></label>
     <input value={phoneNumInputed} type="number" className="form-control" id="phone" placeholder="phone number" onChange={phoneChange}/>
   </div>
 
