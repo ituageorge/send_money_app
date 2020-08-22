@@ -54,7 +54,6 @@ const OthersTransfer = () => {
     <form onSubmit={mySubmitHandler}>
     <div className="">
          <select 
-        //  ref="selectValue" 
          onClick={bankChange}>
             <option value="555">United Bank for Africa</option>
             <option value="777">Union Bank</option>

@@ -1,13 +1,40 @@
-import React from 'react';
+import React, { useRef } from 'react';
+
+const useStateWithLocalStorage = localStorageKey => {
+  const [value, setValue] = React.useState(
+    localStorage.getItem(localStorageKey) || ''
+  );
+ 
+  React.useEffect(() => {
+    localStorage.setItem(localStorageKey, value);
+  }, [value]);
+ 
+  return [value, setValue];
+};
+
 
 const MyAccountTransfers = () => {
+  const [amountInputed, setAmountInputed] = useStateWithLocalStorage(
+    'myAmountInputedLocalStorage'
+  );
+  const [mySelectedBank, setMySelectedBank] = useStateWithLocalStorage(
+    'myBankClickedLocalStorage'
+  );
 
+  const onAmtChange = event => setAmountInputed(event.target.value);
+  const bankChange = event => setMySelectedBank(event.target.value);
+
+  const mySubmitHandler = (event) => {
+    event.preventDefault();
+    alert("You are submitting " + `${amountInputed}x${mySelectedBank}#`);
+  }
+  const inputRef = useRef(null);
   return(
 <div className="">
-<form>
+<form onSubmit={mySubmitHandler}>
 
 <div className="">
-         <select ref="selectValue" onChange={this.handleChange}>
+         <select onClick={bankChange}>
             <option value="555">United Bank for Africa</option>
             <option value="777">Union Bank</option>
             <option value="444">First Bank </option>
@@ -22,13 +49,13 @@ const MyAccountTransfers = () => {
 
   <div className="form-group">
     <label htmlFor="formGroupExampleInput2">Input Amount</label>
-    <input type="number" className="form-control" id="my-amt" placeholder="Amount"/>
+    <input type="number" className="form-control" id="my-amt" placeholder="Amount" onChange={onAmtChange} value={amountInputed}  ref={inputRef }/>
   </div>
-  <button>Recharge</button>
+  <button type="submit">Recharge</button>
 </form>
 
 <div className="">
-  {/* <p>`*${bankKey}*${amount}#`</p> */}
+  <p>`${amountInputed}x${mySelectedBank}#`</p>
 </div>
 </div>
   );
