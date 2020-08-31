@@ -5,6 +5,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js',
+    publicPath: '/',
+  },
+  devServer: {
+    historyApiFallback: true,
+  },
   module: {
     rules: [
       {
@@ -87,14 +96,3 @@ module.exports = {
     }),
   ]
 };
-
-
-
-// module: {
-//   rules: [
-//     {
-//       test: /\.js$/,
-//       enforce: 'pre',
-//       use: ['source-map-loader'],
-//     },
-//   ],

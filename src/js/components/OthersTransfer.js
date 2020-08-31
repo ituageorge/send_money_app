@@ -1,4 +1,8 @@
 import React from 'react';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+
+import domProps from './BankData.json';
 import "./styles.css"
 
 const useStateWithLocalStorage = (localStorageKey) => {
@@ -47,48 +51,75 @@ const OthersTransfer = () => {
 
  const mySubmitHandler = (event) => {
     event.preventDefault();
-    alert("You are submitting " + `${amountInputed}x${phoneNumInputed}x${selectedBank}#`);
+    // alert("You are submitting " + `${amountInputed}x${phoneNumInputed}x${selectedBank}#`);
   }
 
   return(
-  <div className="">
     <form onSubmit={mySubmitHandler}>
-    <div className="">
-         <select 
-         onClick={bankChange}>
-            <option >Pick a bank here</option>
-            <option value="555">United Bank for Africa</option>
-            <option value="777">Union Bank</option>
-            <option value="444">First Bank </option>
-            <option value="333">Access Bank</option>
 
-            <option value="222">Zenith Bank</option>
-            <option value="111">First City Monument Bank of Nigeria</option>
-            <option value="888">Fidelity Bank of Nigeria </option>
-            <option value="999">Guaranty Trust Bank</option>
+  <div className="card container">
+  <div className="card-header">
+    Transferred coded money
+  </div>
+  <div className="card-body">
+      <div className="form-group" onClick={bankChange}>
+         <select className="form-control">
+           {domProps.map((e, key) => {
+             return <option key={key} value={e.code}>{e.name}</option>;
+           } )}
           </select>
-    </div>
+      </div>
 
-  <div className="">
-    <label htmlFor="formGroupExampleInput"> <b> Input amount to send </b></label>
+  <div className="form-group row">
+    <label htmlFor="formGroupExampleInput"> <b> Amount : </b></label>
+    <div className="">
     <input value={amountInputed} type="number" className="form-control" id="bank" placeholder="Amount" onChange={onChange} />
+    </div>
   </div>
 
-  <div className="">
-    <label htmlFor="formGroupExampleInput2"> <b>Input Receivers phone number </b></label>
-    <input value={phoneNumInputed} type="number" className="form-control" id="phone" placeholder="phone number" onChange={phoneChange}/>
+<div className="">
+    <label htmlFor="formGroupExampleInput2"> <b> Phone number :</b></label>
+    <PhoneInput
+  country={'nigeria'}
+  value={phoneNumInputed}
+  onChange={phoneChange}
+  />
   </div>
 
-  <div className="">
-  <button type="submit" className="btn btn-primary">Recharge</button>
+
   </div>
+
+  <div className="card-footer text-muted">
+      <div className="" data-toggle="modal" data-target="#exampleModal">
+      <button type="submit" className="btn btn-primary">Recharge</button>
+      </div>
+  </div>
+</div>
+
+
+
+
+  <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal-dialog">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title" id="exampleModalLabel">Transferred code</h5>
+        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div className="modal-body">
+      <p>"You just submitted " + ${phoneNumInputed}{amountInputed}{selectedBank}</p>
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" className="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </form>
-<div className="">
-{/* <p>`*${bankKey}*${phoneNum}*${amount}#`</p> */}
-  <p>`*${phoneNumInputed}${amountInputed}*${selectedBank}#`</p>
-</div>
-</div>
   )
 };
 

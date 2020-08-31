@@ -1,0 +1,22 @@
+   [
+      
+    {"Key": 1, "name": "United Bank for Africa", "label": "UBA", "code": "*919#"},
+    { "key": 2, "name": "Guarantee Trust Bank", "label": "GTB", "code": "*737#"},
+
+    { "key": "3", "name": "First Bank Nigeria", "label": "FBN", "code": "*894#"},
+    { "key": "4", "name": "First City Monument Bank", "label": "FCMB", "code": "*389*214#"},
+    { "key": "5", "name": "Access(Diamond) Bank", "label": "AB", "code": "*901#"},
+    { "key": "6", "name": "Fidelity Bank", "label": "FDB", "code": "*770#"},
+
+    { "key": "7", "name": "Eco Bank", "label": "ECB", "code": "*326#"},
+    { "key": "8", "name": "Heritage Bank", "label": "HB", "code": "*322*00#"},
+    { "key": "9", "name": "Stanbic IBTC Bank", "label": "SIBTC", "code": "*909#"},
+    { "key": "10", "name": "Sterling Bank", "label": "FCMB", "code": "*822#"},
+    { "key": "11", "name": "Unity Bank", "label": "UTB", "code": "*7799#"},
+    { "key": "12", "name": "Zenith Bank", "label": "ZB", "code": "*966#"},
+    { "key": "13", "name": "Wema Bank", "label": "WB", "code": "*945#"},
+    { "key": "14", "name": "Polaris Bank", "label": "PB", "code": "*833#"},
+    { "key": "15", "name": "Keystone Bank", "label": "KB", "code": "*7111#"},
+    { "key": "16", "name": "JAIZ Bank", "label": "JAIZ", "code": "*389*301#"},
+    { "key": "17", "name": "Union Bank", "label": "UB", "code": "*826#"}
+  ]

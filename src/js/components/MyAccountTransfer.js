@@ -1,4 +1,6 @@
 import React, { useRef } from 'react';
+import bankData from './BankData.json';
+
 import "./styles.css";
 
 const useStateWithLocalStorage = localStorageKey => {
@@ -27,39 +29,66 @@ const MyAccountTransfers = () => {
 
   const mySubmitHandler = (event) => {
     event.preventDefault();
-    alert("You are submitting " + `${amountInputed}x${mySelectedBank}#`);
+    // alert("You are submitting " + `${amountInputed}x${mySelectedBank}#`);
   }
   const inputRef = useRef(null);
   return(
 <div className="">
 <form onSubmit={mySubmitHandler}>
 
-<div className="">
-         <select onClick={bankChange}>
-            <option >Pick a bank here</option>
-            <option value="555">United Bank for Africa</option>
-            <option value="777">Union Bank</option>
-            <option value="444">First Bank </option>
-            <option value="333">Access Bank</option>
+  <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal-dialog">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title" id="exampleModalLabel">Transferred code</h5>
+        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div className="modal-body">
+      <p>"You just submitted " + ${amountInputed}{mySelectedBank}</p>
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" className="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-            <option value="222">Zenith Bank</option>
-            <option value="111">First City Monument Bank of Nigeria</option>
-            <option value="888">Fidelity Bank of Nigeria </option>
-            <option value="999">Guaranty Trust Bank</option>
-          </select>
+
+<div className="card text-center">
+  <div className="card-header">
+    Transferred Code
+  </div>
+  <div className="card-body">
+    
+  <div className="">
+         <select onClick={bankChange}>
+         {bankData.map((e, key) => {
+             return <option key={key} value={e.code}>{e.name}</option>;
+           } )} 
+           </select>
     </div>
 
-  <div className="">
+    <div className="">
     <label htmlFor="formGroupExampleInput2"> <b> Input Amount </b> </label>
     <input type="number" className="form-control" id="my-amt" placeholder="Amount" onChange={onAmtChange} value={amountInputed}  ref={inputRef }/>
+    </div>
+    
   </div>
-  <div className="">
+
+  <div className="card-footer text-muted" data-toggle="modal" data-target="#exampleModal">
   <button type="submit" className="btn btn-primary">Recharge</button>
   </div>
+
+</div>
+
+
 </form>
 
 <div className="">
-  <p>`${amountInputed}x${mySelectedBank}#`</p>
+  <p>`${amountInputed}{mySelectedBank}`</p>
 </div>
 </div>
   );
