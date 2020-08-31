@@ -1,10 +1,13 @@
-body{
-    width: 50%;
-    height: 50%;
-    overflow: auto;
-    margin: auto;
-    position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+body {
+  width: 50%;
+  height: 50%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 form {
@@ -12,7 +15,7 @@ form {
   /* margin: 0 auto; */
   /* width: 700px; */
   /* Form outline */
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
   /* border-radius: 1em; */
   /* height: 250px; */
 
@@ -25,7 +28,6 @@ select {
   padding: 0;
   margin: 0;
 }
-
 
 label {
   /* Uniform size & alignment */
@@ -59,19 +61,19 @@ input:focus {
 button {
   /* This extra margin represent roughly the same space as the space
      between the labels and their text fields */
-  margin-left: .5em;
+  margin-left: 0.5em;
 }
 
 .my_account {
-    height: 60px;
+  height: 60px;
 }
 
 .other_account {
-    height: 60px;
+  height: 60px;
 }
 
 .the_buttons {
-    height: auto;
-    margin: 0 auto;
-    width: 350px;
+  height: auto;
+  margin: 0 auto;
+  width: 350px;
 }
