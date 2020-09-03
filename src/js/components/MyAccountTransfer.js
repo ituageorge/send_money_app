@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import bankData from './BankData.json';
 
 import './styles.css';
@@ -32,103 +33,109 @@ const MyAccountTransfers = () => {
   };
   const inputRef = useRef(null);
   return (
-    <div className="">
-      <form onSubmit={mySubmitHandler}>
-        <div
-          className="modal fade"
-          id="exampleModal"
-          tabIndex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">
-                  Transferred code
-                </h5>
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                <p>
-                  "You just submitted " + ${amountInputed}
-                  {mySelectedBank}
-                </p>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" className="btn btn-primary">
-                  Save changes
-                </button>
-              </div>
+    <form onSubmit={mySubmitHandler}>
+      <div
+        className="modal fade"
+        id="exampleModal"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
+                Transferred code
+              </h5>
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>
+                "You just submitted " + ${amountInputed}
+                {mySelectedBank}
+              </p>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" className="btn btn-primary">
+                Dial
+              </button>
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="card text-center">
-          <div className="card-header">Transferred Code</div>
-          <div className="card-body">
-            <div className="">
-              <select onClick={bankChange}>
+      <div className="card text-center">
+        <div className="card-header">Transferred Code</div>
+        <div className="card-body">
+          <div className="form-group row">
+            <label className="label" htmlFor="">
+              {' '}
+              <b> Pick a Bank :</b>{' '}
+            </label>{' '}
+            <div className="px-2 input">
+              <select className="form-control lg" onClick={bankChange}>
                 {bankData.map((e, key) => {
                   return (
-                    <option key={key} value={e.code}>
+                    <option key={key}
+                     defaultValue={e.code}
+                     >
                       {e.name}
                     </option>
                   );
                 })}
               </select>
             </div>
+          </div>
 
-            <div className="">
-              <label htmlFor="formGroupExampleInput2">
-                {' '}
-                <b> Input Amount </b>{' '}
-              </label>
+          <div className="form-group row">
+            <label className="label" htmlFor="formGroupExampleInput2">
+              {' '}
+              <b> Input Amount :</b>{' '}
+            </label>
+            <div className="px-2 input" onChange={onAmtChange}>
               <input
                 type="number"
                 className="form-control"
                 id="my-amt"
-                placeholder="Amount"
-                onChange={onAmtChange}
-                value={amountInputed}
+                defaultValue={amountInputed}
                 ref={inputRef}
               />
             </div>
           </div>
-
-          <div
-            className="card-footer text-muted"
-            data-toggle="modal"
-            data-target="#exampleModal"
-          >
-            <button type="submit" className="btn btn-primary">
-              Recharge
-            </button>
-          </div>
         </div>
-      </form>
 
-      <div className="">
-        <p>
-          `${amountInputed}
-          {mySelectedBank}`
-        </p>
+        <div
+          className="card-footer text-muted"
+         
+        >
+          <button type="submit" className="btn btn-secondary"  data-toggle="modal"
+          data-target="#exampleModal">
+            Recharge
+          </button>
+
+          <Link to="/">
+            <button className="btn btn-secondary">
+              back
+            </button>
+          </Link>
+        </div>
+       
       </div>
-    </div>
+    </form>
   );
 };
 export default MyAccountTransfers;

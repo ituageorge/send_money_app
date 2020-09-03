@@ -19,7 +19,7 @@ const Home = () => (
       <div className="card-footer text-muted">
         <div className="my_account">
           <Link to="/myaccounttransfer">
-            <button type="button" className="btn btn-secondary btn-lg">
+            <button className="btn btn-secondary">
               Recharge My account
             </button>
           </Link>
@@ -27,7 +27,7 @@ const Home = () => (
 
         <div className="other_account">
           <Link to="/othersTransfer">
-            <button type="button" className="btn btn-secondary btn-lg">
+            <button className="btn btn-secondary">
               Recharge other account
             </button>
           </Link>

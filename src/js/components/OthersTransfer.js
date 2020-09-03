@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 
@@ -62,58 +63,85 @@ const OthersTransfer = () => {
 
   return (
     <form onSubmit={mySubmitHandler}>
-      <div className="card container">
+      <div className="card text-center">
         <div className="card-header">Transferred coded money</div>
         <div className="card-body">
-          <div className="form-group" onClick={bankChange}>
-            <select className="form-control">
-              {domProps.map((e, key) => {
-                return (
-                  <option key={key} value={e.code}>
-                    {e.name}
-                  </option>
-                );
-              })}
-            </select>
+          <div className="form-group row" onClick={bankChange}>
+            <label className="label" htmlFor="">
+              {' '}
+              <b> Pick a Bank : </b>
+            </label>{' '}
+            <div className="px-2 input">
+              <select className="form-control lg ">
+                {domProps.map((e, key) => {
+                  return (
+                    <option key={key}
+                     defaultValue={e.code}
+                     >
+                      {e.name}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
           </div>
 
           <div className="form-group row">
-            <label htmlFor="formGroupExampleInput">
-              {' '}
+            <label className="label" htmlFor="formGroupExampleInput">
               <b> Amount : </b>
-            </label>
-            <div className="">
+            </label>{' '}
+            <div className="lg px-2 input" onChange={onChange}>
               <input
-                value={amountInputed}
+                defaultValue={amountInputed}
                 type="number"
                 className="form-control"
                 id="bank"
                 placeholder="Amount"
-                onChange={onChange}
               />
             </div>
           </div>
 
-          <div className="">
-            <label htmlFor="formGroupExampleInput2">
-              {' '}
-              <b> Phone number :</b>
+          <div className="form-group row">
+            <label className="label" htmlFor="formGroupExampleInput2">
+              <b> Phone number : </b>
             </label>
-            <PhoneInput
-              country={'nigeria'}
-              value={phoneNumInputed}
-              onChange={phoneChange}
-            />
+            <div className="lg px-2 input love" onChange={phoneChange}>
+              <PhoneInput
+                // containerClass=" input"
+                // inputClass="input"
+                country={'nigeria'}
+                defaultValue={phoneNumInputed}
+                // containerClass="my-1"
+                inputClass="py-2"
+                // className="form-control"
+                // searchClass="input"
+                // containerStyle="input"
+                // dropdownStyle="input"
+                // dropdownClass="input"
+              />
+            </div>
           </div>
         </div>
 
-        <div className="card-footer text-muted">
-          <div className="" data-toggle="modal" data-target="#exampleModal">
-            <button type="submit" className="btn btn-primary">
+        <div className="card-footer">
+          
+          <div className="py-2" data-toggle="modal" data-target="#exampleModal">
+            <button type="submit" className="btn btn-secondary">
               Recharge
             </button>
           </div>
+
+          <div className="back py-2">
+          <Link to="/">
+            <button className="btn btn-secondary">
+              back
+            </button>
+          </Link>
         </div>
+        </div>
+
+        
+
       </div>
 
       <div
@@ -154,7 +182,7 @@ const OthersTransfer = () => {
                 Close
               </button>
               <button type="button" className="btn btn-primary">
-                Save changes
+                Dial
               </button>
             </div>
           </div>
